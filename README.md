@@ -3,6 +3,12 @@ Digital Smart Room
 
 A System Verilog implementation
 
+
+<p align="middle">
+  <img src="https://github.com/user-attachments/assets/29ebb1dc-1077-46a0-8a83-224a62c54c02" 
+       width="400"/>
+</p>
+
 Specifications
 ==============
 
