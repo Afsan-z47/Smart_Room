@@ -1,0 +1,3 @@
+yosys synth.ys
+iverilog -o sim.vvp tb.sv smart_room_netlist.sv
+vvp sim.vvp

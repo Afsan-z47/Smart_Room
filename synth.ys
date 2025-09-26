@@ -1,0 +1,3 @@
+read_verilog -sv smart_room.sv energy_counter.sv people_counter.sv full_adder.sv mux2.sv sevenseg.sv
+synth -top smart_room
+write_verilog smart_room_netlist.sv
