@@ -64,7 +64,7 @@ always_comb
 	// Room full indicator
 	r1 = (people_count[3] & people_count[2]);
 	r2 = (people_count[3] & people_count[1] & people_count[0]);
-	room_full = r1 | r2;
+	room_full = r1 | r2 | people_count[4];
 
 	// Lights and Fans (half people count)
 	green_leds[3:0] = people_count[4:1]; 

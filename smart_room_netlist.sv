@@ -280,7 +280,7 @@ module \$paramod\mux2\width=s32'00000000000000000000000000001000 (d0, d1, s, y);
   assign y[7] = s ? d1[7] : d0[7];
 endmodule
 
-(* src = "energy_counter.sv:1.1-32.10" *)
+(* src = "energy_counter.sv:1.1-31.10" *)
 module energy_count_next(old_clk, people_count, old_energy, next_clk, next_energy);
   (* src = "energy_counter.sv:2.20-2.27" *)
   input [5:0] old_clk;
@@ -452,7 +452,7 @@ module sevenseg(data, segments);
   assign _10_ = data[1] | ~(data[0]);
   assign _11_ = data[0] ^ data[1];
   assign _12_ = data[2] ? _11_ : _10_;
-  assign segments[3] = data[3] ? _06_ : _12_;
+  assign segments[3] = data[3] ? _03_ : _12_;
   assign _13_ = data[0] | ~(data[1]);
   assign _14_ = _13_ | data[2];
   assign segments[4] = data[3] ? _03_ : _14_;
@@ -497,6 +497,7 @@ module smart_room(clk, reset, switchA, switchB, seg_people, seg_energy, green_le
   wire _00_;
   wire _01_;
   wire _02_;
+  wire _03_;
   (* src = "smart_room.sv:19.13-19.20" *)
   reg [5:0] clk_div;
   (* src = "smart_room.sv:20.13-20.25" *)
@@ -509,10 +510,11 @@ module smart_room(clk, reset, switchA, switchB, seg_people, seg_energy, green_le
   reg [4:0] people_count;
   (* src = "smart_room.sv:15.13-15.24" *)
   wire [4:0] people_next;
-  assign _00_ = people_count[2] & people_count[3];
-  assign _01_ = ~(people_count[1] & people_count[3]);
-  assign _02_ = people_count[0] & ~(_01_);
-  assign room_full = _02_ | _00_;
+  assign _01_ = people_count[2] & people_count[3];
+  assign _02_ = ~(people_count[1] & people_count[3]);
+  assign _03_ = people_count[0] & ~(_02_);
+  assign _00_ = _03_ | _01_;
+  assign room_full = _00_ | people_count[4];
   (* \always_ff  = 32'd1 *)
   (* src = "smart_room.sv:31.1-36.4" *)
   always @(posedge clk, posedge reset)

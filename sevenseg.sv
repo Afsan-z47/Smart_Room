@@ -13,7 +13,7 @@ module sevenseg(input logic [3:0] data,
 			6: segments = 7'b101_1111;
 			7: segments = 7'b111_0000;
 			8: segments = 7'b111_1111;
-			9: segments = 7'b111_0011;
+			9: segments = 7'b111_1011;
 			default: segments = 7'b000_0000;
 		endcase
 endmodule
