@@ -28,5 +28,5 @@ full_adder #(8) add_energy(
 
 mux2 #(8) m1(old_energy, new_energy, is_energy_up, next_energy);
 
-
 endmodule
+
